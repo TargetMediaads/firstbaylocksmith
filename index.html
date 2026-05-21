@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="First Bay Locksmith – Licensed locksmith in Santa Clara & San Jose. Expert keypad installation, rekeying, and residential locksmith services. Available 24/7. Call (408) 571-9053.">
-<meta name="keywords" content="locksmith Santa Clara, locksmith San Jose, keypad installation, rekeying, residential locksmith, emergency locksmith, Bay Area locksmith, smart lock, 24/7 locksmith">
+<meta name="description" content="First Bay Locksmith – Licensed locksmith in Santa Clara & San Jose. Expert keypad installation, rekeying, and residential locksmith services. Fast response. Call (408) 571-9053.">
+<meta name="keywords" content="locksmith Santa Clara, locksmith San Jose, keypad installation, rekeying, residential locksmith, Bay Area locksmith, smart lock">
 <meta name="robots" content="index, follow">
 <meta name="author" content="First Bay Locksmith">
 <meta name="geo.region" content="US-CA">
 <meta name="geo.placename" content="Santa Clara, California">
 <meta property="og:title" content="First Bay Locksmith – Santa Clara & San Jose">
-<meta property="og:description" content="Expert keypad installation, rekeying & residential locksmith. Licensed, bonded & insured. Call 24/7: (408) 571-9053">
+<meta property="og:description" content="Expert keypad installation, rekeying & residential locksmith. Licensed, bonded & insured. Call: (408) 571-9053">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://firstbaylocksmith.com">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="First Bay Locksmith">
-<meta name="twitter:description" content="Expert locksmith in Santa Clara & San Jose. Keypads, rekeying, residential. 24/7. (408) 571-9053">
+<meta name="twitter:description" content="Expert locksmith in Santa Clara & San Jose. Keypads, rekeying, residential. (408) 571-9053">
 <meta property="og:image" content="https://firstbaylocksmith.com/owner.jpg">
 <meta property="og:image:width" content="760">
 <meta property="og:image:height" content="476">
@@ -27,7 +27,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
 <title>Locksmith Santa Clara & San Jose | First Bay Locksmith | (408) 571-9053</title>
 
 <!-- Structured Data: Local Business -->
@@ -50,7 +51,6 @@
     "longitude": -121.9552
   },
   "url": "https://firstbaylocksmith.com",
-  "openingHours": "Mo-Su 00:00-23:59",
   "priceRange": "$$",
   "description": "Licensed locksmith in Santa Clara and San Jose specializing in keypad installation, rekeying, and residential security services.",
   "areaServed": ["Santa Clara","San Jose","Campbell","Cupertino","Fremont","Gilroy","Hayward","Los Altos","Los Gatos","Menlo Park","Milpitas","Mountain View","Palo Alto","Saratoga","Sunnyvale"],
@@ -77,8 +77,8 @@ a{color:inherit}
 
 /* NAV */
 body > nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 max(5%,calc((100vw - 1280px) / 2));height:64px;box-shadow:0 2px 20px rgba(0,0,0,0.35);gap:16px}
-.nav-logo{font-family:var(--fh);font-size:19px;color:var(--white);letter-spacing:-.2px;display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0;font-weight:700}
-.nav-logo span{color:var(--gold)}
+.nav-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
+.nav-logo picture,.nav-logo img{display:block;height:44px;width:auto}
 .nav-links{display:flex;align-items:center;gap:28px;flex:1;justify-content:center}
 .nav-links a{color:#ffffff;text-decoration:none;font-size:15px;font-weight:700;transition:color .2s;white-space:nowrap;letter-spacing:.2px}
 .nav-links a:hover{color:var(--gold)}
@@ -298,7 +298,12 @@ html{scroll-behavior:auto}
 
 <!-- NAV -->
 <nav role="navigation" aria-label="Main navigation">
-  <a href="#home" class="nav-logo" aria-label="First Bay Locksmith Home">🔐 First Bay <span>Locksmith</span></a>
+  <a href="#home" class="nav-logo" aria-label="First Bay Locksmith Home">
+    <picture>
+      <source type="image/webp" srcset="/logo.webp">
+      <img src="/logo.png" alt="First Bay Locksmith" width="111" height="42" fetchpriority="high">
+    </picture>
+  </a>
   <div class="nav-links" role="list">
     <a href="#services" role="listitem">Services</a>
     <a href="#keypads" role="listitem">Keypads</a>
@@ -343,7 +348,7 @@ html{scroll-behavior:auto}
         <a href="sms:4085719053" class="btn-ghost" aria-label="Send a text message to First Bay Locksmith">💬 Send a Text</a>
       </div>
       <div class="hero-trust">
-        <span class="trust-pill">24/7 Emergency</span>
+        <span class="trust-pill">Fast Response</span>
         <span class="trust-pill">~20 Min Response</span>
         <span class="trust-pill">License #4973</span>
         <span class="trust-pill">Since 2009</span>
@@ -404,9 +409,9 @@ html{scroll-behavior:auto}
       <article class="s-card" role="listitem" aria-label="Residential Locksmith Service">
         <div class="s-icon-w" aria-hidden="true">🏠</div>
         <h3 class="s-title">Residential</h3>
-        <p class="s-desc">Complete home locksmith service — from lockouts to full security upgrades, available 24/7.</p>
+        <p class="s-desc">Complete home locksmith service — from lockouts to full security upgrades.</p>
         <ul class="s-li" aria-label="Residential services offered">
-          <li>24/7 home lockouts</li>
+          <li>Home lockouts</li>
           <li>Lock installation &amp; repair</li>
           <li>High-security lock upgrades</li>
           <li>Safe opening service</li>
@@ -542,7 +547,7 @@ html{scroll-behavior:auto}
       </div>
       <div class="stats-row" aria-label="Quick stats">
         <div class="stat"><div class="stat-n">15+</div><div class="stat-l">Years Experience</div></div>
-        <div class="stat"><div class="stat-n">24/7</div><div class="stat-l">Always Available</div></div>
+        <div class="stat"><div class="stat-n">★ 5</div><div class="stat-l">Star Service</div></div>
         <div class="stat"><div class="stat-n" style="font-size:28px">~20min</div><div class="stat-l">Avg. Response</div></div>
       </div>
     </div>
@@ -647,7 +652,7 @@ html{scroll-behavior:auto}
 <!-- CTA BAND -->
 <div class="cta-band" role="complementary" aria-label="Call to action – contact First Bay Locksmith">
   <h2>Need a Locksmith Right Now?</h2>
-  <p>Available 24/7, 365 days a year — most jobs in under 20 minutes. Call or text, I'll pick up.</p>
+  <p>Fast response — most jobs in under 20 minutes. Call or text, I'll pick up.</p>
   <div class="cta-btns">
     <a href="tel:4085719053" class="cta-call" aria-label="Call First Bay Locksmith at 408-571-9053">📞 Call (408) 571-9053</a>
     <a href="sms:4085719053" class="cta-sms" aria-label="Send a text message to First Bay Locksmith">💬 Send a Text</a>
