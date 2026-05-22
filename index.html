@@ -332,7 +332,8 @@ section{padding:50px 4%}
 .stats-row{grid-template-columns:1fr 1fr 1fr}
 .cta-btns{flex-direction:column;align-items:center}
 .cta-call,.cta-sms{width:100%;max-width:320px;justify-content:center}
-.float-wrap{bottom:16px;right:12px;gap:8px}
+.float-wrap{bottom:16px;right:12px;gap:8px;opacity:0;pointer-events:none;transform:translateY(16px);transition:opacity .35s ease,transform .35s ease}
+.float-wrap.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
 .f-btn{padding:11px 16px;font-size:15px}
 .f-yelp{padding:6px 11px;font-size:11px}
 .about-cards{display:none}
@@ -877,6 +878,27 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     [cards[i], cards[j]] = [cards[j], cards[i]];
   }
   cards.forEach(c => grid.appendChild(c));
+})();
+
+// On mobile, show floating CTA stack only after user has scrolled past 50% of hero
+(function(){
+  const fw = document.querySelector('.float-wrap');
+  const hero = document.getElementById('home');
+  if (!fw || !hero) return;
+  const mql = window.matchMedia('(max-width:900px)');
+  let ticking = false;
+  function update(){
+    ticking = false;
+    if (!mql.matches) { fw.classList.add('visible'); return; }
+    const threshold = hero.offsetHeight * 0.5;
+    fw.classList.toggle('visible', window.scrollY > threshold);
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, {passive:true});
+  window.addEventListener('resize', update, {passive:true});
+  if (mql.addEventListener) mql.addEventListener('change', update);
+  update();
 })();
 </script>
 </body>
