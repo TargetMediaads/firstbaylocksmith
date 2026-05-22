@@ -124,7 +124,8 @@ body > nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--navy
 .hero-name-card{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);background:rgba(10,22,40,.9);border:1px solid rgba(249,168,37,.28);border-radius:12px;padding:11px 20px;text-align:center;white-space:nowrap;backdrop-filter:blur(10px)}
 .hero-name-card .name{color:var(--white);font-weight:700;font-size:15px}
 .hero-name-card .stars{color:var(--gold);font-size:13px;margin-top:2px}
-.hero-lic{position:absolute;top:14px;right:-4px;background:var(--blue);color:white;border-radius:6px;padding:7px 12px;font-size:11px;font-weight:700;letter-spacing:.6px;box-shadow:0 4px 14px rgba(0,0,0,.35);text-transform:uppercase}
+.hero-lic{position:absolute;top:14px;right:-4px;background:var(--blue);color:white;border-radius:6px;padding:7px 12px;font-size:11px;font-weight:700;letter-spacing:.6px;box-shadow:0 4px 14px rgba(0,0,0,.35);text-transform:uppercase;text-decoration:none;cursor:pointer;transition:all .2s;display:inline-block;line-height:1.2}
+.hero-lic:hover,.hero-lic:focus{background:var(--blue-l);transform:translateY(-1px);box-shadow:0 6px 18px rgba(21,101,192,.5);outline:none}
 
 /* SECTIONS */
 section{padding:clamp(60px,8vw,90px) 5%}
@@ -368,7 +369,7 @@ html{scroll-behavior:auto}
         <div class="name">First Bay Locksmith</div>
         <div class="stars">⭐⭐⭐⭐⭐ Trusted Since 2009</div>
       </div>
-      <div class="hero-lic" aria-label="California Locksmith License 4973">Lic #4973</div>
+      <a class="hero-lic" href="https://search.dca.ca.gov/details/1241/LCO/4973/498725eaf6e22f643a8be00c05de4c20" target="_blank" rel="noopener noreferrer" aria-label="Verify California Locksmith License 4973 on the CA Department of Consumer Affairs website (opens in new tab)" title="Click to verify license on CA.gov">Lic #4973 ↗</a>
     </div>
   </div>
   <div class="scroll-cue" aria-hidden="true">Scroll</div>
