@@ -115,13 +115,13 @@ body > nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--navy
 .mobile-menu .mm-yelp{color:#ff6b6b;text-align:center;border-radius:8px;padding:14px;margin-top:8px;font-weight:700;background:rgba(210,63,46,.12);border:1px solid rgba(210,63,46,.25)}
 
 /* HERO */
-.hero{min-height:100svh;background:linear-gradient(150deg,var(--navy) 0%,var(--navy2) 55%,#163a6a 100%);display:flex;align-items:center;padding:80px 5% 60px;position:relative;overflow:hidden}
+.hero{min-height:100svh;background:linear-gradient(150deg,var(--navy) 0%,var(--navy2) 55%,#163a6a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:130px 5% 60px;position:relative;overflow:hidden}
 .hero::after{content:'';position:absolute;top:-100px;right:-100px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(25,118,210,.15) 0%,transparent 70%);pointer-events:none}
 .hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:50px;align-items:center;width:100%;position:relative;z-index:1}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(249,168,37,.13);border:1px solid rgba(249,168,37,.32);color:var(--gold);font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:18px}
 
 /* HERO YELP RATING BADGE (animated trust signal) */
-.hero-yelp-badge{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#e83b3b,#a01818);border:1px solid rgba(255,255,255,.18);color:white;font-weight:700;padding:9px 18px;border-radius:30px;text-decoration:none;margin-bottom:14px;box-shadow:0 8px 24px rgba(210,35,35,.4);animation:yelpPulse 2.4s ease-in-out infinite;position:relative;overflow:hidden;transition:transform .2s}
+.hero-yelp-badge{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#e83b3b,#a01818);border:1px solid rgba(255,255,255,.18);color:white;font-weight:700;padding:10px 20px;border-radius:30px;text-decoration:none;margin:0 auto 28px;box-shadow:0 8px 24px rgba(210,35,35,.4);animation:yelpPulse 2.4s ease-in-out infinite;position:relative;overflow:hidden;transition:transform .2s;z-index:2;align-self:center}
 .hero-yelp-badge:hover{transform:scale(1.04);animation-play-state:paused}
 .hero-yelp-badge::before{content:'';position:absolute;top:0;left:-60%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);animation:yelpShine 3.5s ease-in-out infinite;transform:skewX(-20deg)}
 .hyb-stars{color:#ffd54f;letter-spacing:1.5px;font-size:13px;text-shadow:0 1px 2px rgba(0,0,0,.3)}
@@ -323,7 +323,7 @@ body > nav{height:74px}
 .foot-inner{grid-template-columns:1fr}
 }
 @media(max-width:600px){
-.hero{padding:74px 4% 48px}
+.hero{padding:96px 4% 48px}
 section{padding:50px 4%}
 .hero-actions{flex-direction:column}
 .btn-gold,.btn-ghost{justify-content:center;width:100%;font-size:18px;padding:15px}
@@ -391,14 +391,14 @@ html{scroll-behavior:auto}
 
 <!-- HERO -->
 <section class="hero" id="home" aria-label="First Bay Locksmith – Bay Area's trusted locksmith">
+  <a href="https://yelp.to/wGn2fHu45a" target="_blank" rel="noopener noreferrer" class="hero-yelp-badge" aria-label="4.9 stars from 706+ Yelp reviews — read them all (opens in new tab)">
+    <span class="hyb-stars" aria-hidden="true">★★★★★</span>
+    <span class="hyb-rating">4.9</span>
+    <span class="hyb-divider" aria-hidden="true"></span>
+    <span class="hyb-count">706+ Yelp Reviews</span>
+  </a>
   <div class="hero-inner">
     <div class="hero-content">
-      <a href="https://yelp.to/wGn2fHu45a" target="_blank" rel="noopener noreferrer" class="hero-yelp-badge" aria-label="4.9 stars from 706+ Yelp reviews — read them all (opens in new tab)">
-        <span class="hyb-stars" aria-hidden="true">★★★★★</span>
-        <span class="hyb-rating">4.9</span>
-        <span class="hyb-divider" aria-hidden="true"></span>
-        <span class="hyb-count">706+ Yelp Reviews</span>
-      </a>
       <div class="hero-badge" aria-label="Licensed, Bonded and Insured">🔒 Licensed · Bonded · Insured</div>
       <h1>Bay Area's <em>Trusted Locksmith</em></h1>
       <p class="hero-sub">Keypads, Rekeying &amp; Residential Security — Fast, reliable, and personally handled by your local expert in Santa Clara &amp; San Jose.</p>
