@@ -57,8 +57,8 @@
   "sameAs": ["https://yelp.to/wGn2fHu45a"],
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "5",
+    "ratingValue": "4.9",
+    "reviewCount": "706",
     "bestRating": "5",
     "worstRating": "1"
   },
@@ -119,6 +119,23 @@ body > nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--navy
 .hero::after{content:'';position:absolute;top:-100px;right:-100px;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(25,118,210,.15) 0%,transparent 70%);pointer-events:none}
 .hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:50px;align-items:center;width:100%;position:relative;z-index:1}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(249,168,37,.13);border:1px solid rgba(249,168,37,.32);color:var(--gold);font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:18px}
+
+/* HERO YELP RATING BADGE (animated trust signal) */
+.hero-yelp-badge{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#e83b3b,#a01818);border:1px solid rgba(255,255,255,.18);color:white;font-weight:700;padding:9px 18px;border-radius:30px;text-decoration:none;margin-bottom:14px;box-shadow:0 8px 24px rgba(210,35,35,.4);animation:yelpPulse 2.4s ease-in-out infinite;position:relative;overflow:hidden;transition:transform .2s}
+.hero-yelp-badge:hover{transform:scale(1.04);animation-play-state:paused}
+.hero-yelp-badge::before{content:'';position:absolute;top:0;left:-60%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);animation:yelpShine 3.5s ease-in-out infinite;transform:skewX(-20deg)}
+.hyb-stars{color:#ffd54f;letter-spacing:1.5px;font-size:13px;text-shadow:0 1px 2px rgba(0,0,0,.3)}
+.hyb-rating{font-size:18px;font-weight:800;letter-spacing:-.3px}
+.hyb-count{font-size:13px;font-weight:700;opacity:.96;letter-spacing:.1px}
+.hyb-divider{width:1px;height:18px;background:rgba(255,255,255,.25)}
+@keyframes yelpPulse{
+  0%,100%{transform:scale(1);box-shadow:0 8px 24px rgba(210,35,35,.4)}
+  50%{transform:scale(1.025);box-shadow:0 12px 32px rgba(210,35,35,.55)}
+}
+@keyframes yelpShine{
+  0%{left:-60%}
+  60%,100%{left:160%}
+}
 .hero h1{font-family:var(--fh);font-size:clamp(42px,6.2vw,68px);line-height:1.05;color:var(--white);font-weight:800;letter-spacing:-.5px;margin-bottom:18px;text-wrap:balance}
 .hero h1 em{color:var(--gold);font-style:normal;display:block}
 .hero-sub{font-size:clamp(15px,2.2vw,18px);color:rgba(255,255,255,.72);line-height:1.65;margin-bottom:28px;max-width:430px}
@@ -376,6 +393,12 @@ html{scroll-behavior:auto}
 <section class="hero" id="home" aria-label="First Bay Locksmith – Bay Area's trusted locksmith">
   <div class="hero-inner">
     <div class="hero-content">
+      <a href="https://yelp.to/wGn2fHu45a" target="_blank" rel="noopener noreferrer" class="hero-yelp-badge" aria-label="4.9 stars from 706+ Yelp reviews — read them all (opens in new tab)">
+        <span class="hyb-stars" aria-hidden="true">★★★★★</span>
+        <span class="hyb-rating">4.9</span>
+        <span class="hyb-divider" aria-hidden="true"></span>
+        <span class="hyb-count">706+ Yelp Reviews</span>
+      </a>
       <div class="hero-badge" aria-label="Licensed, Bonded and Insured">🔒 Licensed · Bonded · Insured</div>
       <h1>Bay Area's <em>Trusted Locksmith</em></h1>
       <p class="hero-sub">Keypads, Rekeying &amp; Residential Security — Fast, reliable, and personally handled by your local expert in Santa Clara &amp; San Jose.</p>
@@ -583,7 +606,7 @@ html{scroll-behavior:auto}
       </div>
       <div class="stats-row" aria-label="Quick stats">
         <div class="stat"><div class="stat-n">15+</div><div class="stat-l">Years Experience</div></div>
-        <div class="stat"><div class="stat-n">★ 5</div><div class="stat-l">Star Service</div></div>
+        <div class="stat"><div class="stat-n">706+</div><div class="stat-l">⭐ 4.9 Yelp Reviews</div></div>
         <div class="stat"><div class="stat-n" style="font-size:28px">~20min</div><div class="stat-l">Avg. Response</div></div>
       </div>
     </div>
@@ -611,9 +634,9 @@ html{scroll-behavior:auto}
 <!-- REVIEWS / TESTIMONIALS -->
 <section class="reviews-bg" id="reviews" aria-labelledby="reviews-heading">
   <div class="sec-wrap">
-    <div class="sec-label" aria-hidden="true">★ ★ ★ ★ ★ &nbsp; Real Yelp Reviews</div>
+    <div class="sec-label" aria-hidden="true">★ ★ ★ ★ ★ &nbsp; 4.9 from 706+ Yelp Reviews</div>
     <h2 class="sec-title" id="reviews-heading">What Customers Say</h2>
-    <p class="sec-sub">Real reviews from real Bay Area customers — a different one is featured on every visit.</p>
+    <p class="sec-sub">Trusted by <strong>700+ Bay Area customers</strong> on Yelp — a different real review is featured on every visit.</p>
 
     <div class="rev-grid" id="rev-grid" role="list">
       <article class="rev-card" role="listitem">
@@ -649,7 +672,7 @@ html{scroll-behavior:auto}
 
     <div class="rev-cta">
       <a href="https://yelp.to/wGn2fHu45a" class="rev-yelp-btn" target="_blank" rel="noopener noreferrer" aria-label="Read all reviews on Yelp (opens in new tab)">
-        <span class="rev-yelp-stars">★★★★★</span> Read All Reviews on Yelp <span aria-hidden="true">→</span>
+        <span class="rev-yelp-stars">★★★★★</span> Read All 706+ Reviews on Yelp <span aria-hidden="true">→</span>
       </a>
     </div>
   </div>
