@@ -53,8 +53,22 @@
   "url": "https://firstbaylocksmith.com",
   "priceRange": "$$",
   "description": "Licensed locksmith in Santa Clara and San Jose specializing in keypad installation, rekeying, and residential security services.",
-  "areaServed": ["Santa Clara","San Jose","Campbell","Cupertino","Fremont","Gilroy","Hayward","Los Altos","Los Gatos","Menlo Park","Milpitas","Mountain View","Palo Alto","Saratoga","Sunnyvale"],
-  "sameAs": ["https://yelp.to/wGn2fHu45a"]
+  "areaServed": ["Santa Clara","San Jose","Campbell","Cupertino","Fremont","Gilroy","Hayward","Los Altos","Los Gatos","Menlo Park","Milpitas","Mountain View","Palo Alto","Saratoga","Sunnyvale","Aptos"],
+  "sameAs": ["https://yelp.to/wGn2fHu45a"],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "5",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {"@type":"Review","author":{"@type":"Person","name":"Jim G."},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"datePublished":"2024-02-15","reviewBody":"Ben is the consummate professional from first contact until the job is completed. He alerted me that my two door locks had a lifetime warranty and was able to have the manufacturer send completely new high-end locks. That alone saved me hundreds of dollars."},
+    {"@type":"Review","author":{"@type":"Person","name":"Sandy A."},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"datePublished":"2025-11-03","reviewBody":"Ben is still amazing after all these years! Thanks for always being there for me, Ben!"},
+    {"@type":"Review","author":{"@type":"Person","name":"Khoa N."},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"datePublished":"2025-12-06","reviewBody":"Ben installed locks for me 7 years ago. Recently two got stuck — I called Ben and he recommended I buy a bottle of Tri Flow spray instead of charging me for something I could do myself. The spray works like a charm!"},
+    {"@type":"Review","author":{"@type":"Person","name":"Dan D."},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"datePublished":"2025-05-02","reviewBody":"You are crazy if you don't call Ben for all your locksmith work. As a former Certified Property Manager, I've worked with tons of locksmiths over the years. Ben is super-knowledgeable, always has the right tools and parts, always on time. Always fair and reasonable prices."},
+    {"@type":"Review","author":{"@type":"Person","name":"Shanna D."},"reviewRating":{"@type":"Rating","ratingValue":"5","bestRating":"5"},"datePublished":"2024-09-05","reviewBody":"Ben at First Bay Locksmith provides excellent service. We have a property management company and have worked with him for years. He always provides excellent service and is very professional."}
+  ]
 }
 </script>
 
@@ -195,6 +209,22 @@ section{padding:clamp(60px,8vw,90px) 5%}
 .yelp-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(210,63,46,.15);border:1.5px solid rgba(210,63,46,.3);color:#e8412e;font-size:15px;font-weight:700;padding:11px 18px;border-radius:8px;text-decoration:none;transition:all .2s}
 .yelp-btn:hover{background:rgba(210,63,46,.25);transform:translateY(-1px)}
 
+/* REVIEWS */
+.reviews-bg{background:var(--off)}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-bottom:36px}
+.rev-card{background:var(--white);border:1.5px solid var(--gray-l);border-radius:14px;padding:24px 22px;display:flex;flex-direction:column;gap:14px;transition:all .25s;position:relative}
+.rev-card:hover{transform:translateY(-3px);border-color:var(--blue-b);box-shadow:0 12px 32px rgba(21,101,192,.1)}
+.rev-card::after{content:'❝';position:absolute;top:8px;right:18px;font-size:48px;color:var(--blue);opacity:.08;line-height:1;font-family:Georgia,serif}
+.rev-stars{color:var(--gold);font-size:16px;letter-spacing:2px;line-height:1}
+.rev-quote{font-size:14.5px;line-height:1.6;color:var(--text2);margin:0;flex-grow:1}
+.rev-meta{margin-top:auto;border-top:1px solid var(--gray-l);padding-top:14px;display:flex;flex-direction:column;gap:3px}
+.rev-meta strong{font-size:14px;color:var(--text);font-weight:700;letter-spacing:-.1px}
+.rev-meta span{font-size:12px;color:var(--gray)}
+.rev-cta{text-align:center}
+.rev-yelp-btn{display:inline-flex;align-items:center;gap:9px;background:#d32323;color:white;padding:14px 26px;border-radius:8px;text-decoration:none;font-weight:700;font-size:15px;transition:all .2s;box-shadow:0 4px 14px rgba(210,35,35,.25);letter-spacing:-.1px}
+.rev-yelp-btn:hover{background:#b81e1e;transform:translateY(-2px);box-shadow:0 8px 24px rgba(210,35,35,.4)}
+.rev-yelp-btn .rev-yelp-stars{color:#ffd54f;letter-spacing:1px;font-size:13px}
+
 /* VIDEOS */
 .vid-bg{background:var(--off)}
 .vid-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:38px}
@@ -313,6 +343,7 @@ html{scroll-behavior:auto}
     <a href="#keypads" role="listitem">Keypads</a>
     <a href="#about" role="listitem">About</a>
     <a href="#commercial" role="listitem">Commercial</a>
+    <a href="#reviews" role="listitem">Reviews</a>
     <a href="#videos" role="listitem">Videos</a>
     <a href="#areas" role="listitem">Areas</a>
   </div>
@@ -331,6 +362,7 @@ html{scroll-behavior:auto}
   <a href="#keypads" onclick="closeMenu()">⌨️ Smart Keypads</a>
   <a href="#about" onclick="closeMenu()">👤 About</a>
   <a href="#commercial" onclick="closeMenu()">🏢 Commercial</a>
+  <a href="#reviews" onclick="closeMenu()">⭐ Reviews</a>
   <a href="#videos" onclick="closeMenu()">📹 Videos</a>
   <a href="#areas" onclick="closeMenu()">📍 Service Areas</a>
   <a href="https://yelp.to/wGn2fHu45a" class="mm-yelp" target="_blank" rel="noopener">⭐ Read Our Yelp Reviews</a>
@@ -576,6 +608,53 @@ html{scroll-behavior:auto}
   </div>
 </section>
 
+<!-- REVIEWS / TESTIMONIALS -->
+<section class="reviews-bg" id="reviews" aria-labelledby="reviews-heading">
+  <div class="sec-wrap">
+    <div class="sec-label" aria-hidden="true">★ ★ ★ ★ ★ &nbsp; Real Yelp Reviews</div>
+    <h2 class="sec-title" id="reviews-heading">What Customers Say</h2>
+    <p class="sec-sub">Real reviews from real Bay Area customers — a different one is featured on every visit.</p>
+
+    <div class="rev-grid" id="rev-grid" role="list">
+      <article class="rev-card" role="listitem">
+        <div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="rev-quote">Ben is the consummate professional from first contact until the job is completed. He alerted me that my two door locks had a lifetime warranty and was able to have the manufacturer send completely new high-end locks. The old ones were 25 years old — that alone saved me hundreds of dollars.</p>
+        <div class="rev-meta"><strong>Jim G.</strong><span>San Jose, CA &middot; Feb 2024</span></div>
+      </article>
+
+      <article class="rev-card" role="listitem">
+        <div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="rev-quote">Ben is still amazing after all these years! Thanks for always being there for me, Ben!!!</p>
+        <div class="rev-meta"><strong>Sandy A.</strong><span>San Jose, CA &middot; Nov 2025 &middot; Yelp Elite</span></div>
+      </article>
+
+      <article class="rev-card" role="listitem">
+        <div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="rev-quote">Ben installed locks for me 7 years ago. Recently two got stuck — I called Ben and he recommended I buy a bottle of Tri Flow spray instead of charging me for something I could do myself. The spray works like a charm! My locks are now as smooth as new. Thank you Ben!</p>
+        <div class="rev-meta"><strong>Khoa N.</strong><span>Northern California, CA &middot; Dec 2025</span></div>
+      </article>
+
+      <article class="rev-card" role="listitem">
+        <div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="rev-quote">You are crazy if you don't call Ben for all your locksmith work. As a former Certified Property Manager, I've worked with tons of locksmiths over the years. Ben is awesome — super-knowledgeable, always has the right tools and parts, always on time. Always fair and reasonable prices.</p>
+        <div class="rev-meta"><strong>Dan D.</strong><span>San Jose, CA &middot; May 2025</span></div>
+      </article>
+
+      <article class="rev-card" role="listitem">
+        <div class="rev-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="rev-quote">Ben at First Bay Locksmith provides excellent service. We have a property management company and have worked with him for years. He always provides excellent service and is very professional.</p>
+        <div class="rev-meta"><strong>Shanna D.</strong><span>Aptos, CA &middot; Sep 2024</span></div>
+      </article>
+    </div>
+
+    <div class="rev-cta">
+      <a href="https://yelp.to/wGn2fHu45a" class="rev-yelp-btn" target="_blank" rel="noopener noreferrer" aria-label="Read all reviews on Yelp (opens in new tab)">
+        <span class="rev-yelp-stars">★★★★★</span> Read All Reviews on Yelp <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- VIDEOS -->
 <section class="vid-bg" id="videos" aria-labelledby="videos-heading">
   <div class="sec-wrap">
@@ -691,6 +770,7 @@ html{scroll-behavior:auto}
         <li><a href="tel:4085719053" aria-label="Call 408-571-9053">(408) 571-9053</a></li>
         <li><a href="sms:4085719053">Text Us</a></li>
         <li><a href="https://yelp.to/wGn2fHu45a" target="_blank" rel="noopener">⭐ Yelp Reviews</a></li>
+        <li><a href="#reviews">Customer Reviews</a></li>
         <li><a href="#areas">Service Areas</a></li>
         <li><a href="#videos">Videos</a></li>
       </ul>
@@ -763,6 +843,18 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (el) { e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); closeMenu(); }
   });
 });
+
+// Shuffle review cards on each page load — Fisher-Yates
+(function(){
+  const grid = document.getElementById('rev-grid');
+  if (!grid) return;
+  const cards = [...grid.children];
+  for (let i = cards.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [cards[i], cards[j]] = [cards[j], cards[i]];
+  }
+  cards.forEach(c => grid.appendChild(c));
+})();
 </script>
 </body>
 </html>
