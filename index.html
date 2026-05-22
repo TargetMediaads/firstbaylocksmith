@@ -289,7 +289,8 @@ footer{background:var(--navy);color:rgba(255,255,255,.62);padding:clamp(40px,6vw
 .foot-phone{color:var(--gold);font-weight:700;font-size:17px;text-decoration:none}
 
 /* FLOAT BUTTONS */
-.float-wrap{position:fixed;bottom:24px;right:22px;z-index:999;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.float-wrap{position:fixed;bottom:84px;right:22px;z-index:999;display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.f-sms-pinned{position:fixed;bottom:24px;right:22px;z-index:999}
 .f-btn{display:flex;align-items:center;gap:9px;padding:13px 20px;border-radius:50px;font-family:var(--fh);font-size:15px;font-weight:700;letter-spacing:-.1px;text-decoration:none;box-shadow:0 6px 22px rgba(0,0,0,.28);transition:transform .2s,box-shadow .2s;animation:floatIn .5s ease}
 .f-btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 10px 30px rgba(0,0,0,.35)}
 .f-call{background:var(--gold);color:var(--navy)}
@@ -332,8 +333,9 @@ section{padding:50px 4%}
 .stats-row{grid-template-columns:1fr 1fr 1fr}
 .cta-btns{flex-direction:column;align-items:center}
 .cta-call,.cta-sms{width:100%;max-width:320px;justify-content:center}
-.float-wrap{bottom:16px;right:12px;gap:8px;opacity:0;pointer-events:none;transform:translateY(16px);transition:opacity .35s ease,transform .35s ease}
+.float-wrap{bottom:70px;right:12px;gap:8px;opacity:0;pointer-events:none;transform:translateY(16px);transition:opacity .35s ease,transform .35s ease}
 .float-wrap.visible{opacity:1;pointer-events:auto;transform:translateY(0)}
+.f-sms-pinned{bottom:16px;right:12px}
 .f-btn{padding:11px 16px;font-size:15px}
 .f-yelp{padding:6px 11px;font-size:11px}
 .about-cards{display:none}
@@ -815,10 +817,10 @@ html{scroll-behavior:auto}
   <a href="tel:4085719053" class="f-btn f-call" aria-label="Call First Bay Locksmith now – (408) 571-9053">
     📞 Call Now
   </a>
-  <a href="sms:4085719053" class="f-btn f-sms" aria-label="Text First Bay Locksmith">
-    💬 Text Us
-  </a>
 </div>
+<a href="sms:4085719053" class="f-btn f-sms f-sms-pinned" aria-label="Text First Bay Locksmith">
+  💬 Text Us
+</a>
 
 <script>
 // Mobile menu
@@ -880,7 +882,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   cards.forEach(c => grid.appendChild(c));
 })();
 
-// On mobile, show floating CTA stack only after user has scrolled past 50% of hero
+// On mobile, show floating Yelp + Call Now stack only after user has scrolled past 25% of hero
+// (Text Us stays always-visible — it's a separate .f-sms-pinned element)
 (function(){
   const fw = document.querySelector('.float-wrap');
   const hero = document.getElementById('home');
@@ -890,7 +893,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   function update(){
     ticking = false;
     if (!mql.matches) { fw.classList.add('visible'); return; }
-    const threshold = hero.offsetHeight * 0.5;
+    const threshold = hero.offsetHeight * 0.25;
     fw.classList.toggle('visible', window.scrollY > threshold);
   }
   window.addEventListener('scroll', () => {
