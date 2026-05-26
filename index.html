@@ -248,11 +248,13 @@ section{padding:clamp(60px,8vw,90px) 5%}
 .vid-card{background:var(--white);border:1.5px solid var(--gray-l);border-radius:14px;overflow:hidden;transition:all .22s}
 .vid-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.09);border-color:var(--blue-b)}
 .vid-thumb{aspect-ratio:16/9;background:linear-gradient(135deg,var(--navy),#1a3a6e);display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;background-size:cover;background-position:center}
-.vid-yt::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 50%,rgba(0,0,0,.4) 100%);transition:opacity .2s}
+.vid-yt::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 50%,rgba(0,0,0,.4) 100%);transition:opacity .2s;pointer-events:none}
 .vid-yt:hover::before{opacity:.5}
 .vid-yt:hover .vid-play{transform:scale(1.08);background:#ff0000}
 .vid-yt:hover .vid-tri{border-left-color:white}
 .vid-yt iframe{width:100%;height:100%;border:0;display:block}
+.vid-yt.vid-loaded::before{display:none}
+.vid-yt.vid-loaded{cursor:default;background-image:none!important}
 .vid-play{width:60px;height:60px;background:rgba(249,168,37,.95);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .2s;position:relative;z-index:1;box-shadow:0 4px 14px rgba(0,0,0,.3)}
 .vid-tri{width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:17px solid var(--navy);margin-left:4px}
 .vid-soon{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.6);color:rgba(255,255,255,.75);font-size:10px;font-weight:700;letter-spacing:.5px;padding:4px 9px;border-radius:14px}
@@ -899,7 +901,7 @@ document.querySelectorAll('.vid-yt').forEach(thumb => {
     iframe.allowFullscreen = true;
     thumb.innerHTML = '';
     thumb.appendChild(iframe);
-    thumb.style.cursor = 'default';
+    thumb.classList.add('vid-loaded');
     thumb.removeAttribute('role');
     thumb.removeAttribute('tabindex');
   };
