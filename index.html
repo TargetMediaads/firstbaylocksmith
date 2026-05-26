@@ -183,26 +183,6 @@ section{padding:clamp(60px,8vw,90px) 5%}
 .s-li li::before{content:'→';position:absolute;left:0;color:var(--blue-b);font-size:11px;top:2px}
 .s-card.feat .s-li li::before{color:var(--gold)}
 
-/* KEYPAD */
-.kp-bg{background:var(--white)}
-.kp-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-.kp-visual{background:var(--navy);border-radius:20px;padding:40px;display:flex;flex-direction:column;align-items:center;min-height:360px;justify-content:center}
-.kp-device{width:200px;background:#1a2a40;border-radius:14px;padding:24px 18px;box-shadow:0 20px 50px rgba(0,0,0,.5)}
-.kp-screen{background:#0d1b2a;border-radius:8px;padding:14px;text-align:center;margin-bottom:18px;min-height:52px;display:flex;align-items:center;justify-content:center}
-.kp-screen span{font-size:22px;letter-spacing:8px;color:var(--gold);font-family:monospace}
-.kp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.kp-key{background:var(--navy2);border-radius:7px;height:42px;display:flex;align-items:center;justify-content:center;color:white;font-family:var(--fh);font-size:18px;font-weight:700;cursor:pointer;transition:background .15s;user-select:none;border:none}
-.kp-key:hover,.kp-key:focus{background:var(--blue);outline:none}
-.kp-key.enter{background:var(--gold);color:var(--navy);grid-column:1/3;font-size:15px;font-weight:800}
-.kp-key.enter:hover{background:var(--gold-l)}
-.kp-key.clr{background:#c0392b}
-.kp-key.clr:hover{background:#e74c3c}
-.kp-hint{text-align:center;color:rgba(255,255,255,.4);font-size:11px;margin-top:12px;letter-spacing:1px;text-transform:uppercase}
-.kp-points{display:flex;flex-direction:column;gap:16px;margin-top:28px}
-.kp-pt{display:flex;gap:14px;align-items:flex-start}
-.kp-pt-icon{width:38px;height:38px;background:rgba(21,101,192,.09);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px}
-.kp-pt h4{font-weight:700;font-size:15px;color:var(--text);margin-bottom:3px}
-.kp-pt p{font-size:13px;color:var(--text2);line-height:1.55}
 
 /* ABOUT */
 .about-bg{background:var(--navy);color:white}
@@ -324,7 +304,6 @@ body > nav{height:74px}
 .hero-photo-frame{max-width:260px;aspect-ratio:1/1;border-radius:50%}
 .hero-name-card{bottom:-10px}
 .hero-lic{top:8px;left:8px;right:auto}
-.kp-inner{grid-template-columns:1fr}
 .about-inner{grid-template-columns:1fr}
 .about-photo-w{max-width:380px;margin:0 auto}
 .about-cards{left:-10px}
@@ -367,7 +346,6 @@ html{scroll-behavior:auto}
   </a>
   <div class="nav-links" role="list">
     <a href="#services" role="listitem">Services</a>
-    <a href="#keypads" role="listitem">Keypads</a>
     <a href="#about" role="listitem">About</a>
     <a href="#commercial" role="listitem">Commercial</a>
     <a href="#reviews" role="listitem">Reviews</a>
@@ -386,7 +364,6 @@ html{scroll-behavior:auto}
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
   <a href="#services" onclick="closeMenu()">🔑 Services</a>
-  <a href="#keypads" onclick="closeMenu()">⌨️ Smart Keypads</a>
   <a href="#about" onclick="closeMenu()">👤 About</a>
   <a href="#commercial" onclick="closeMenu()">🏢 Commercial</a>
   <a href="#reviews" onclick="closeMenu()">⭐ Reviews</a>
@@ -534,63 +511,6 @@ html{scroll-behavior:auto}
 
     </div>
     <p style="text-align:center;margin-top:24px;font-size:14px;color:var(--text2)">More videos coming soon — subscribe to our YouTube channel to get notified.</p>
-  </div>
-</section>
-
-<!-- KEYPAD SECTION -->
-<section class="kp-bg" id="keypads" aria-labelledby="kp-heading">
-  <div class="sec-wrap kp-inner">
-    <div class="kp-visual" aria-label="Interactive keypad demonstration">
-      <div class="kp-device" role="application" aria-label="Demo keypad – try clicking the numbers">
-        <div class="kp-screen">
-          <span id="kp-display" aria-live="polite" aria-label="Keypad display">· · · ·</span>
-        </div>
-        <div class="kp-grid">
-          <button class="kp-key" onclick="kpPress('1')" aria-label="1">1</button>
-          <button class="kp-key" onclick="kpPress('2')" aria-label="2">2</button>
-          <button class="kp-key" onclick="kpPress('3')" aria-label="3">3</button>
-          <button class="kp-key" onclick="kpPress('4')" aria-label="4">4</button>
-          <button class="kp-key" onclick="kpPress('5')" aria-label="5">5</button>
-          <button class="kp-key" onclick="kpPress('6')" aria-label="6">6</button>
-          <button class="kp-key" onclick="kpPress('7')" aria-label="7">7</button>
-          <button class="kp-key" onclick="kpPress('8')" aria-label="8">8</button>
-          <button class="kp-key" onclick="kpPress('9')" aria-label="9">9</button>
-          <button class="kp-key enter" onclick="kpEnter()" aria-label="Enter – confirm code">✓ Enter</button>
-          <button class="kp-key" onclick="kpPress('0')" aria-label="0">0</button>
-          <button class="kp-key clr" onclick="kpClear()" aria-label="Clear">✕</button>
-        </div>
-        <div class="kp-hint" aria-hidden="true">Try it — click the keys!</div>
-      </div>
-    </div>
-    <div>
-      <div class="sec-label" aria-hidden="true">Smart Keypad Expert</div>
-      <h2 class="sec-title" id="kp-heading">Go Keyless. Go Secure.</h2>
-      <p class="sec-sub">I personally install and explain every keypad. You'll understand exactly how it works before I leave.</p>
-      <div class="kp-points">
-        <div class="kp-pt">
-          <div class="kp-pt-icon" aria-hidden="true">🛡️</div>
-          <div>
-            <h4>No More Lost Keys</h4>
-            <p>Set unique codes for family, house cleaners, or guests — change them instantly anytime.</p>
-          </div>
-        </div>
-        <div class="kp-pt">
-          <div class="kp-pt-icon" aria-hidden="true">📱</div>
-          <div>
-            <h4>Smart Home Ready</h4>
-            <p>Connect to Alexa, Google Home, or your phone app. I set it up and walk you through everything.</p>
-          </div>
-        </div>
-        <div class="kp-pt">
-          <div class="kp-pt-icon" aria-hidden="true">⚡</div>
-          <div>
-            <h4>Same-Day Installation</h4>
-            <p>Most keypad jobs done in under an hour. Call today, secure tonight.</p>
-          </div>
-        </div>
-      </div>
-      <a href="tel:4085719053" class="btn-gold" style="margin-top:28px;display:inline-flex" aria-label="Book a keypad installation – call now">📞 Book a Keypad Install</a>
-    </div>
   </div>
 </section>
 
@@ -789,7 +709,6 @@ html{scroll-behavior:auto}
     <nav aria-label="Footer services navigation">
       <div class="foot-h">Services</div>
       <ul class="foot-ul">
-        <li><a href="#keypads">Smart Keypads</a></li>
         <li><a href="#services">Rekeying</a></li>
         <li><a href="#services">Residential</a></li>
         <li><a href="#commercial">Commercial</a></li>
@@ -846,26 +765,6 @@ document.addEventListener('click', e => {
   if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) closeMenu();
 });
 
-// Keypad demo
-let kpCode = '';
-function kpPress(n) {
-  if (kpCode.length >= 6) return;
-  kpCode += n;
-  const filled = '● '.repeat(kpCode.length).trim();
-  const empty = '· '.repeat(6 - kpCode.length).trim();
-  document.getElementById('kp-display').textContent = (filled + (empty ? ' ' + empty : '')).trim();
-}
-function kpEnter() {
-  const d = document.getElementById('kp-display');
-  d.textContent = '✓  Unlocked!';
-  d.style.color = '#4caf50';
-  setTimeout(() => { kpCode = ''; d.textContent = '· · · ·'; d.style.color = ''; }, 1600);
-}
-function kpClear() {
-  kpCode = '';
-  document.getElementById('kp-display').textContent = '· · · ·';
-  document.getElementById('kp-display').style.color = '';
-}
 
 // Smooth scroll + close menu on link click
 document.querySelectorAll('a[href^="#"]').forEach(a => {
