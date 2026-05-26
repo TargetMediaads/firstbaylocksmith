@@ -247,8 +247,13 @@ section{padding:clamp(60px,8vw,90px) 5%}
 .vid-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:38px}
 .vid-card{background:var(--white);border:1.5px solid var(--gray-l);border-radius:14px;overflow:hidden;transition:all .22s}
 .vid-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.09);border-color:var(--blue-b)}
-.vid-thumb{aspect-ratio:16/9;background:linear-gradient(135deg,var(--navy),#1a3a6e);display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer}
-.vid-play{width:52px;height:52px;background:rgba(249,168,37,.9);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.vid-thumb{aspect-ratio:16/9;background:linear-gradient(135deg,var(--navy),#1a3a6e);display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;background-size:cover;background-position:center}
+.vid-yt::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 50%,rgba(0,0,0,.4) 100%);transition:opacity .2s}
+.vid-yt:hover::before{opacity:.5}
+.vid-yt:hover .vid-play{transform:scale(1.08);background:#ff0000}
+.vid-yt:hover .vid-tri{border-left-color:white}
+.vid-yt iframe{width:100%;height:100%;border:0;display:block}
+.vid-play{width:60px;height:60px;background:rgba(249,168,37,.95);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .2s;position:relative;z-index:1;box-shadow:0 4px 14px rgba(0,0,0,.3)}
 .vid-tri{width:0;height:0;border-top:10px solid transparent;border-bottom:10px solid transparent;border-left:17px solid var(--navy);margin-left:4px}
 .vid-soon{position:absolute;top:10px;right:10px;background:rgba(0,0,0,.6);color:rgba(255,255,255,.75);font-size:10px;font-weight:700;letter-spacing:.5px;padding:4px 9px;border-radius:14px}
 .vid-info{padding:15px 17px}
@@ -689,10 +694,9 @@ html{scroll-behavior:auto}
     <p class="sec-sub">Watch me explain the basics — how keypads work, when to rekey, and how to upgrade your home security.</p>
     <div class="vid-grid" role="list">
 
-      <article class="vid-card" role="listitem" aria-label="Coming soon: How Smart Keypads Work">
-        <div class="vid-thumb" style="background:linear-gradient(135deg,#1565C0,#0a1628)">
+      <article class="vid-card" role="listitem">
+        <div class="vid-thumb vid-yt" data-yt="aH8sdUIDIOg" data-title="How Smart Keypads Work — First Bay Locksmith" role="button" tabindex="0" aria-label="Play video: How Smart Keypads Work" style="background-image:url('https://i.ytimg.com/vi/aH8sdUIDIOg/maxresdefault.jpg')">
           <div class="vid-play" aria-hidden="true"><div class="vid-tri"></div></div>
-          <div class="vid-soon" aria-label="Coming soon">Coming Soon</div>
         </div>
         <div class="vid-info">
           <div class="vid-title">How Smart Keypads Work</div>
@@ -723,7 +727,7 @@ html{scroll-behavior:auto}
       </article>
 
     </div>
-    <p style="text-align:center;margin-top:24px;font-size:14px;color:var(--text2)">Videos coming soon — subscribe to our YouTube channel to get notified.</p>
+    <p style="text-align:center;margin-top:24px;font-size:14px;color:var(--text2)">More videos coming soon — subscribe to our YouTube channel to get notified.</p>
   </div>
 </section>
 
@@ -881,6 +885,29 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   }
   cards.forEach(c => grid.appendChild(c));
 })();
+
+// Click-to-load YouTube embeds (lite-YT pattern — no heavy iframe until user clicks Play)
+document.querySelectorAll('.vid-yt').forEach(thumb => {
+  const load = () => {
+    const id = thumb.dataset.yt;
+    const title = thumb.dataset.title || 'YouTube video';
+    if (!id || thumb.querySelector('iframe')) return;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+    iframe.title = title;
+    iframe.allow = 'accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';
+    iframe.allowFullscreen = true;
+    thumb.innerHTML = '';
+    thumb.appendChild(iframe);
+    thumb.style.cursor = 'default';
+    thumb.removeAttribute('role');
+    thumb.removeAttribute('tabindex');
+  };
+  thumb.addEventListener('click', load);
+  thumb.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); load(); }
+  });
+});
 
 // On mobile, show floating Yelp + Call Now stack only after user has scrolled past 25% of hero
 // (Text Us stays always-visible — it's a separate .f-sms-pinned element)
